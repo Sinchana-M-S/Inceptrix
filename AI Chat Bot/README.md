@@ -1,0 +1,205 @@
+<div align="center">
+<h1>SARVASVA (सर्वस्व)</h1>
+
+### Overview
+
+This project is a **multilingual conversational AI assistant** crafted to assist users with:
+
+- **Loan Eligibility Checks**
+- **Customized Loan Application Guidance**
+- **Financial Literacy Tips**
+
+The assistant is built to simplify the loan process within the Indian banking context by supporting multiple languages and integrating seamless text and voice interactions.
+
+> **Key Highlight:** The solution leverages **Sarvam AI APIs** to power robust language translation and speech processing, ensuring an inclusive experience for all users.
+
+---
+
+## Demonstration Video
+
+Watch the full system functionality demonstration: [Watch Video](https://drive.google.com/file/d/19Y-WtDmbcXi07LdHjwKukSdD2rwqwn2-/view?usp=sharing)
+
+---
+
+## ✨ Features
+
+### 1. Loan Eligibility Check
+
+- **Interactive Assessment:** Gathers essential financial details from users.
+- **Dynamic Evaluation:** Assesses eligibility based on factors like income, credit score, and employment.
+- **Clear Outcome:** Delivers an explicit decision (approved or not) with detailed justifications.
+
+### 2. Loan Application Guidance
+
+- **Step-by-Step Process:** Provides detailed instructions tailored to the chosen loan type.
+- **Document Checklist:** Offers a comprehensive list of required documents along with specific Indian banking requirements.
+- **Expert Recommendations:** Shares professional advice for optimizing the loan application process.
+
+### 3. Financial Literacy Tips
+
+- **Actionable Advice:** Delivers practical tips on savings, credit management, and debt handling.
+- **Alternative Solutions:** Suggests other financing options when loan eligibility isn’t met.
+
+### 4. Temple Gold Digitization (Mandir Sona)
+
+- **Blockchain Tokenization:** Convert household/temple gold into digital NFTs (1 token = 1 gram)
+- **Borrow Without Deposit:** Get up to 70% of gold value as loan while gold stays at home
+- **Simple Process:** Upload photo → AI verification → Instant digital certificate
+- **Secure:** Gold locked digitally on Polygon blockchain during loan period
+
+### 5. Smart Loan Comparison & Recommendation
+
+- **Compare Multiple Banks:** Analyzes interest rates, processing fees, and terms across lenders
+- **Personalized Recommendations:** Suggests best loan option based on your profile
+- **Transparent Display:** Shows EMIs, total payable amount, and hidden charges upfront
+- **Time-Saving:** Get best rates in seconds instead of visiting multiple banks
+
+### 6. Credit Twin - Personalized AI Credit Coach
+
+- **Predictive Analysis:** "Save ₹500/month → Boost eligibility by 12%"
+- **Gamified Progress:** Level up your financial credibility with actionable milestones
+- **Future Simulations:** See how financial decisions impact your loan eligibility
+- **Privacy First:** Credit twin data secured on blockchain ledger
+
+### 7. AI Ghost Transaction Simulator
+
+- **Pre-Commitment Visualization:** See exact monthly impact before taking loan
+- **Interactive Sandbox:** Test different loan amounts, tenures, and interest rates
+- **Cash Flow Forecast:** Understand how EMI affects your monthly budget
+- **Risk Assessment:** Get warnings about over-borrowing or financial strain
+
+### 8.Voice-Based Vernacular Document Reader
+
+- **OCR Technology:** Upload any loan document (PDF, image)
+- **Read Aloud:** AI reads document in your native language using Sarvam TTS
+- **Jargon Simplification:** Explains complex terms like "collateral," "floating rate," "moratorium"
+- **Highlight Key Clauses:** Automatically identifies important sections
+
+---
+
+## 🤖 Sarvam AI API Integration
+
+The assistant’s multilingual capabilities are powered by **Sarvam AI APIs**, which include:
+
+- **Translate Text:** Seamlessly converts text between multiple Indian languages and English.
+- **Speech to Text:** Transcribes real-time speech into text, supporting interactive voice applications.
+- **Speech to Text Translate:** Translates spoken language in real time while transcribing.
+
+## 📝 AI-Driven Response Structure
+
+The assistant generates responses in a clear, structured format:
+
+### **A. Loan Eligibility Assessment**
+
+- States whether the loan is **approved or not**.
+- Provides detailed **reasons** for the decision.
+
+### **B. If Loan is Eligible:**
+
+1. **Loan Acquisition Process:**
+   - Step-by-step guidance for the loan application.
+   - Detailed bank procedures and expected timelines.
+2. **Required Documentation:**
+   - List of necessary documents with preparation tips.
+3. **Professional Financial Recommendations:**
+   - Strategies for loan optimization and long-term planning.
+
+### **C. If Loan is Not Eligible:**
+
+1. **Reasons for Rejection:**
+   - A detailed explanation of the decision.
+2. **Actionable Improvement Strategies:**
+   - Steps to enhance creditworthiness and financial health.
+3. **Alternative Financial Guidance:**
+   - Suggestions for alternative financing and future planning.
+
+---
+
+## 💻 Technology Stack
+
+- **Backend:** Python (Flask)
+- **AI Processing:** OpenAI API
+- **Language & Speech:** **Sarvam AI APIs** (Translation, Speech-to-Text, Text-to-Speech)
+- **Frontend:** Web-based chatbot & Telegram Bot
+- **Hosting:** Planned on AWS / Google Cloud / RunAnywhere SDK
+
+---
+
+## 🚀 Project Setup
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/Jihaan-Jain/SARVASVA.git
+
+```
+
+### 2. Create a Virtual Environment
+
+```bash
+python -m venv venv
+source venv/bin/activate  # On macOS/Linux
+venv\Scripts\activate    # On Windows
+```
+
+### 3. Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Configure Environment (Required APIs)
+
+Create a `.env` file in the project root (same folder as `main.py`) with at least:
+
+```bash
+SARVAM_API_KEY=your_sarvam_api_key_here
+GROQ_API_KEY=your_groq_api_key_here
+```
+
+Optional (recommended on Windows):
+
+```bash
+TESSERACT_PATH=C:\Program Files\Tesseract-OCR\tesseract.exe
+POPPLER_PATH=C:\path\to\poppler\bin   # if pdf2image cannot find Poppler by itself
+```
+
+### 5. Install System Dependencies (Windows)
+
+- **Tesseract OCR**: Download and install from `https://github.com/tesseract-ocr/tesseract` (Windows installer).  
+- **Poppler for Windows** (for PDF OCR): Download a Poppler build for Windows and add its `bin` folder to `PATH` or set `POPPLER_PATH` as above.
+
+### 6. Run the Application
+
+From the project root:
+
+```bash
+python main.py
+```
+
+Then open `http://127.0.0.1:5000/` in your browser.
+
+---
+
+## 📸 Screenshots
+
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/a5020efb-d67c-4d0c-a32a-435f7c9161e0" width="600" alt="Home Page">
+  <p><strong>Home Page</strong></p>
+</div>
+
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/6eb29d78-a270-4a06-9616-02935d10b47b" width="600" alt="Loan Eligibility Check">
+  <p><strong>Home Page</strong></p>
+</div>
+
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/16109fd8-0424-40d0-88b7-7d6084771035" width="600" alt="Loan Application Guidance">
+  <p><strong>Loan Application Guidance</strong></p>
+</div>
+
+---
+
+## Conclusion
+
+This project stands as a **user-friendly AI loan advisor** that transforms the loan application process with a focus on inclusivity and ease-of-use. By harnessing the power of **Sarvam AI APIs**, it ensures smooth, multilingual interactions that cater to the diverse needs of users in the Indian banking environment.

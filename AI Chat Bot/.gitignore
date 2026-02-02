@@ -1,0 +1,25 @@
+# Ignore environment files containing secrets
+.env
+
+# Python
+venv/
+.venv/
+__pycache__/
+*.pyc
+
+# Node
+node_modules/
+
+# Logs
+*.log
+# Ignore virtual environment folder
+/myvenv/
+# or
+myvenv/
+
+# Ignore environment variables file
+.env
+.env.example
+
+# Google Cloud / service account credentials (secrets)
+youtube-*.json
