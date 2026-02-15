@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revenue Leakage Early Warning System | SARVASVA</title>
+    <meta name="description" content="AI-powered loan foreclosure prediction and customer retention system">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+    <!-- Back to main site (opening page has Agentic Bank + Revenue Leakage) -->
+    <div class="app-top-bar">
+        <a href="/" class="back-to-apex"><i class="fas fa-arrow-left"></i> Back to ApexBank</a>
+    </div>
+
+    <!-- Login Page -->
+    <div id="login-page" class="login-container hidden">
+        <div class="login-card">
+            <div class="login-logo">
+                <div class="login-logo-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h1 class="login-title">RetainAI</h1>
+                <p class="login-subtitle">Revenue Leakage Early Warning System</p>
+            </div>
+
+            <form id="login-form" class="login-form">
+                <div class="form-group">
+                    <label class="form-label" for="email">Email Address</label>
+                    <input type="email" id="email" class="form-control" placeholder="rm1@nbfc.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="password">Password</label>
+                    <input type="password" id="password" class="form-control" placeholder="••••••••" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-arrow-right-to-bracket"></i>
+                    Sign In
+                </button>
+
+                <div id="login-error" class="hidden"
+                    style="color: var(--danger); text-align: center; margin-top: 1rem; font-size: 0.9rem;"></div>
+            </form>
+
+            <div class="login-footer">
+                <p><strong>Test Credentials:</strong></p>
+                <p>RM: rm1@nbfc.com | Manager: manager@nbfc.com</p>
+                <p>Password: password123</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main App -->
+    <div id="app" class="app-container hidden">
+        <!-- Top Navigation -->
+        <nav class="top-nav">
+            <div class="nav-brand">
+                <div class="nav-brand-bar"></div>
+                <span class="nav-brand-text">Revenue Leakage Early Warning System</span>
+                <span class="nav-brand-subtitle">Predict, Prevent, Retain · <span class="nav-brand-name"
+                        id="user-company">SARVASVA</span></span>
+            </div>
+            <div class="nav-filters">
+                <a href="#" id="nav-dashboard" class="nav-link-agent" title="RetainAI Dashboard">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Dashboard</span>
+                </a>
+                <div class="filter-dropdown">
+                    <i class="fas fa-calendar"></i>
+                    <span>Next 30 Days</span>
+                    <i class="fas fa-chevron-down" style="font-size: 0.7rem;"></i>
+                </div>
+                <div class="user-info" style="display: flex; align-items: center; gap: 0.5rem; margin-left: 1rem;">
+                    <span id="user-name" style="font-size: 0.85rem; color: var(--text-secondary);"></span>
+                    <a href="#" id="logout-btn" style="color: var(--text-muted); font-size: 0.8rem;">Logout</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Dashboard Page -->
+            <div id="dashboard-page" class="page">
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon primary">
+                            <i class="fas fa-indian-rupee-sign"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-label">Revenue Saved</div>
+                            <div class="stat-value" id="stat-revenue-saved">₹12.6 Cr</div>
+                            <div class="stat-sub">Through early intervention</div>
+                        </div>
+                        <div class="stat-change up" id="stat-revenue-change">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>+18.2%</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon warning">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-label">Loans at Risk</div>
+                            <div class="stat-value" id="stat-loans-risk">1,284</div>
+                            <div class="stat-sub">Predicted exits in next 30 days</div>
+                        </div>
+                        <div class="stat-change down" id="stat-loans-change">
+                            <i class="fas fa-arrow-down"></i>
+                            <span>-6.4%</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon success">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-label">Intervention Success</div>
+                            <div class="stat-value" id="stat-success-rate">63%</div>
+                            <div class="stat-sub">Retention after action</div>
+                        </div>
+                        <div class="stat-change up" id="stat-success-change">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>+4.1%</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon danger">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-label">Avg Early Detection</div>
+                            <div class="stat-value" id="stat-detection">9.4 Days</div>
+                            <div class="stat-sub">Before foreclosure event</div>
+                        </div>
+                        <div class="stat-change up" id="stat-detection-change">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>+1.2d</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Foreclosure Trend Chart -->
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">Predicted Foreclosures – Next 30 Days</h3>
+                            <p class="card-subtitle">Risk-segmented exit projections</p>
+                        </div>
+                        <div class="chart-legend">
+                            <div class="legend-item"><span class="legend-dot high"></span> High</div>
+                            <div class="legend-item"><span class="legend-dot medium"></span> Medium</div>
+                            <div class="legend-item"><span class="legend-dot low"></span> Low</div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-container">
+                            <canvas id="foreclosure-chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- At-Risk Customers Table -->
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">At-Risk Customers</h3>
+                            <p class="card-subtitle">Click any row to view full risk profile</p>
+                        </div>
+                    </div>
+                    <div class="card-body" style="padding: 0;">
+                        <table class="customer-table">
+                            <thead>
+                                <tr>
+                                    <th>Customer ID</th>
+                                    <th>Loan Type</th>
+                                    <th>Risk % <i class="fas fa-sort" style="opacity: 0.5;"></i></th>
+                                    <th>Exit In <i class="fas fa-sort" style="opacity: 0.5;"></i></th>
+                                    <th>Revenue at Risk <i class="fas fa-sort" style="opacity: 0.5;"></i></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody id="customer-table-body">
+                                <!-- Dynamic content -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Customer Profile Page -->
+            <div id="customer-page" class="page hidden">
+                <div class="profile-header">
+                    <div class="profile-title">
+                        <span class="profile-back" id="back-btn">
+                            <i class="fas fa-arrow-left"></i>
+                        </span>
+                        <div>
+                            <h2>Customer Risk Profile</h2>
+                            <span class="profile-subtitle" id="customer-header-info">C38475 · Home Loan</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" id="open-simulator-btn">
+                        <i class="fas fa-flask"></i>
+                        Open Simulator
+                    </button>
+                </div>
+
+                <div class="main-content">
+                    <div class="grid-3">
+                        <!-- Left Column - Customer Info & Risk Gauge -->
+                        <div>
+                            <div class="card mb-2">
+                                <div class="card-body">
+                                    <div class="customer-info-card">
+                                        <div class="customer-avatar-lg" id="customer-avatar">CU</div>
+                                        <div class="customer-meta">
+                                            <strong id="customer-name">Customer Name</strong>
+                                            <div id="customer-loan-type">Home Loan</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="customer-meta-grid">
+                                        <div class="meta-row">
+                                            <i class="fas fa-clock"></i>
+                                            <span>Tenure</span>
+                                            <span id="customer-tenure">15 yrs</span>
+                                        </div>
+                                        <div class="meta-row">
+                                            <i class="fas fa-rupee-sign"></i>
+                                            <span>Outstanding</span>
+                                            <span id="customer-outstanding">₹82,00,000</span>
+                                        </div>
+                                        <div class="meta-row">
+                                            <i class="fas fa-calendar-check"></i>
+                                            <span>EMI</span>
+                                            <span id="customer-emi">₹72,000</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Risk Gauge with Revenue at Risk -->
+                                    <div class="risk-gauge-container">
+                                        <div class="risk-gauge-title">Foreclosure Risk</div>
+                                        <div class="risk-gauge-value" id="risk-percentage">94%</div>
+                                        <div class="risk-gauge-label" id="risk-label">High Risk</div>
+                                    </div>
+
+                                    <!-- Revenue at Risk (CRITICAL) -->
+                                    <div class="revenue-risk-box" id="revenue-risk-box">
+                                        <div class="revenue-risk-label">Revenue at Risk</div>
+                                        <div class="revenue-risk-value" id="revenue-at-risk-value">₹1.86 Lakhs</div>
+                                    </div>
+
+                                    <!-- Urgency Indicator -->
+                                    <div class="urgency-indicator" id="urgency-indicator">
+                                        <i class="fas fa-clock"></i>
+                                        <div class="urgency-content">
+                                            <div class="urgency-label">Likely Foreclosure Window</div>
+                                            <div class="urgency-value" id="urgency-value">⏳ 30–45 days</div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Model Confidence -->
+                                    <div class="confidence-row" id="confidence-row">
+                                        <span class="confidence-label">Prediction Confidence:</span>
+                                        <span class="confidence-value" id="confidence-value">High</span>
+                                        <span class="confidence-desc" id="confidence-desc">(Stable pattern)</span>
+                                    </div>
+
+                                    <!-- Risk Trend -->
+                                    <div class="risk-trend-row" id="risk-trend-row">
+                                        <span class="trend-icon" id="trend-icon">↑</span>
+                                        <span class="trend-desc" id="trend-desc">Risk increasing over last 14
+                                            days</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- What Happens If No Action -->
+                            <div class="card no-action-card">
+                                <div class="card-body">
+                                    <div class="no-action-header">
+                                        <i class="fas fa-exclamation-circle"></i>
+                                        <span>If no action is taken:</span>
+                                    </div>
+                                    <div class="no-action-value" id="no-action-value">Expected loss: ₹1.86L in ~38 days
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Previous Actions -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">Previous Actions</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="action-history-list" id="action-history-list">
+                                        <div class="text-muted">No previous actions</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Center Column - Exit Reasons & Triggers -->
+                        <div>
+                            <div class="card mb-2">
+                                <div class="card-header">
+                                    <div>
+                                        <h3 class="card-title">Why This Customer May Exit</h3>
+                                        <p class="card-subtitle">Exit reason probability breakdown</p>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="donut-chart-container">
+                                        <div class="donut-chart">
+                                            <canvas id="exit-reasons-chart"></canvas>
+                                        </div>
+                                        <div class="donut-legend" id="exit-reasons-legend">
+                                            <!-- Dynamic -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Recent Risk Triggers (Replaces Behavioral Signals) -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <div>
+                                        <h3 class="card-title">Recent Risk Triggers</h3>
+                                        <p class="card-subtitle">Events that triggered this alert</p>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="signals-timeline" id="signals-timeline">
+                                        <!-- Dynamic -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Column - Action Engine -->
+                        <div>
+                            <div class="card">
+                                <div class="card-header">
+                                    <div>
+                                        <h3 class="card-title">
+                                            <i class="fas fa-wand-magic-sparkles"
+                                                style="color: var(--brand-primary); margin-right: 0.5rem;"></i>
+                                            Action Engine
+                                        </h3>
+                                        <p class="card-subtitle">Recommended retention interventions</p>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="action-cards" id="action-cards">
+                                        <!-- Dynamic -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Action Modal -->
+    <div class="modal-backdrop" id="action-modal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-title" id="action-modal-title">Execute Action</h3>
+                <button class="modal-close" id="modal-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="action-form">
+                    <input type="hidden" id="action-type">
+                    <input type="hidden" id="action-loan-id">
+                    <div class="form-group">
+                        <label class="form-label">Notes</label>
+                        <textarea class="form-control" id="action-notes" rows="4"
+                            placeholder="Enter details about this action..."></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" id="modal-cancel">Cancel</button>
+                <button class="btn btn-primary" id="modal-submit">Execute Action</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- What-If Simulator Modal -->
+    <div class="modal-backdrop" id="simulator-modal">
+        <div class="modal" style="max-width: 700px;">
+            <div class="modal-header">
+                <h3 class="modal-title">
+                    <i class="fas fa-flask" style="color: var(--brand-primary); margin-right: 0.5rem;"></i>
+                    What-If Simulator
+                </h3>
+                <button class="modal-close" id="simulator-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
+                    Simulate different intervention strategies to predict their impact on customer retention.
+                </p>
+
+                <!-- Current State -->
+                <div class="simulator-section">
+                    <h4 style="font-size: 0.9rem; margin-bottom: 0.75rem; color: var(--text-secondary);">Current
+                        Customer State</h4>
+                    <div class="simulator-current-state">
+                        <div class="sim-stat">
+                            <span class="sim-stat-label">Risk Score</span>
+                            <span class="sim-stat-value" id="sim-current-risk">85%</span>
+                        </div>
+                        <div class="sim-stat">
+                            <span class="sim-stat-label">Current Rate</span>
+                            <span class="sim-stat-value" id="sim-current-rate">10.5%</span>
+                        </div>
+                        <div class="sim-stat">
+                            <span class="sim-stat-label">Competitor Rate</span>
+                            <span class="sim-stat-value" id="sim-competitor-rate">8.75%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interventions -->
+                <div class="simulator-section">
+                    <h4 style="font-size: 0.9rem; margin-bottom: 0.75rem; color: var(--text-secondary);">Configure
+                        Interventions</h4>
+
+                    <div class="form-group">
+                        <label class="form-label">Rate Reduction (%)</label>
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <input type="range" id="sim-rate-reduction" min="0" max="2" step="0.25" value="0.5"
+                                style="flex: 1; accent-color: var(--brand-primary);">
+                            <span id="sim-rate-value"
+                                style="font-weight: 600; color: var(--brand-primary); min-width: 40px;">0.5%</span>
+                        </div>
+                    </div>
+
+                    <div class="sim-checkboxes">
+                        <label class="sim-checkbox">
+                            <input type="checkbox" id="sim-waive-prepayment">
+                            <span>Waive Prepayment Penalty</span>
+                        </label>
+                        <label class="sim-checkbox">
+                            <input type="checkbox" id="sim-premium-rm">
+                            <span>Assign Premium RM</span>
+                        </label>
+                        <label class="sim-checkbox">
+                            <input type="checkbox" id="sim-tenure-extension">
+                            <span>Offer Tenure Extension</span>
+                        </label>
+                    </div>
+
+                    <button class="btn btn-primary" id="sim-run-btn" style="width: 100%; margin-top: 1rem;">
+                        <i class="fas fa-play"></i>
+                        Run Simulation
+                    </button>
+                </div>
+
+                <!-- Results -->
+                <div class="simulator-section" id="sim-results-section" style="display: none;">
+                    <h4 style="font-size: 0.9rem; margin-bottom: 0.75rem; color: var(--text-secondary);">
+                        <i class="fas fa-chart-line" style="margin-right: 0.5rem;"></i>
+                        Simulation Results
+                    </h4>
+
+                    <div class="sim-results-grid">
+                        <div class="sim-result-card positive">
+                            <div class="sim-result-label">Retention Probability</div>
+                            <div class="sim-result-value" id="sim-new-retention">+18%</div>
+                            <div class="sim-result-sub" id="sim-retention-change">Increased from 15% to 33%</div>
+                        </div>
+                        <div class="sim-result-card">
+                            <div class="sim-result-label">Revenue Saved</div>
+                            <div class="sim-result-value" id="sim-revenue-saved">₹1.2L</div>
+                        </div>
+                        <div class="sim-result-card">
+                            <div class="sim-result-label">Cost to Bank</div>
+                            <div class="sim-result-value" id="sim-cost">₹48K</div>
+                        </div>
+                        <div class="sim-result-card">
+                            <div class="sim-result-label">ROI</div>
+                            <div class="sim-result-value" id="sim-roi">250%</div>
+                        </div>
+                    </div>
+
+                    <div class="sim-recommendation" id="sim-recommendation">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Recommended - High ROI intervention</span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" id="simulator-cancel">Close</button>
+                <button class="btn btn-success" id="simulator-apply" style="display: none;">
+                    <i class="fas fa-check"></i>
+                    Apply This Intervention
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <!-- Chart.js Library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script src="/app.js"></script>
+</body>
+
+</html>

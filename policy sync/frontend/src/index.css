@@ -1,0 +1,254 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@layer base {
+  :root {
+    /* Core Banking Palette */
+    --background: 222 47% 6%;
+    --foreground: 210 40% 96%;
+
+    --card: 222 47% 8%;
+    --card-foreground: 210 40% 96%;
+
+    --popover: 222 47% 10%;
+    --popover-foreground: 210 40% 96%;
+
+    /* Primary - Deep Navy Trust */
+    --primary: 217 91% 60%;
+    --primary-foreground: 222 47% 6%;
+
+    /* Secondary - Subtle Surface */
+    --secondary: 222 30% 14%;
+    --secondary-foreground: 210 40% 85%;
+
+    /* Muted - For Legal Text Background */
+    --muted: 222 30% 12%;
+    --muted-foreground: 215 20% 55%;
+
+    /* Accent - Highlight */
+    --accent: 217 91% 60%;
+    --accent-foreground: 222 47% 6%;
+
+    /* Semantic Colors */
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 210 40% 98%;
+
+    /* Compliance Greens */
+    --success: 160 84% 39%;
+    --success-foreground: 160 84% 98%;
+    --success-muted: 160 50% 15%;
+
+    /* Warning Amber */
+    --warning: 38 92% 50%;
+    --warning-foreground: 38 92% 10%;
+    --warning-muted: 38 50% 12%;
+
+    /* High Risk Coral */
+    --risk-high: 0 84% 60%;
+    --risk-high-muted: 0 50% 12%;
+    --risk-medium: 38 92% 50%;
+    --risk-medium-muted: 38 50% 12%;
+    --risk-low: 160 84% 39%;
+    --risk-low-muted: 160 50% 15%;
+
+    /* Regulation Highlight */
+    --highlight-legal: 217 91% 60%;
+    --highlight-legal-bg: 217 91% 20%;
+    --highlight-gap: 0 84% 60%;
+    --highlight-gap-bg: 0 50% 15%;
+    --highlight-match: 160 84% 39%;
+    --highlight-match-bg: 160 50% 15%;
+
+    /* Glass Effect */
+    --glass: 222 47% 10% / 0.8;
+    --glass-border: 222 30% 20%;
+
+    /* Borders */
+    --border: 222 30% 18%;
+    --input: 222 30% 18%;
+    --ring: 217 91% 60%;
+
+    --radius: 0.75rem;
+
+    /* Sidebar */
+    --sidebar-background: 222 47% 5%;
+    --sidebar-foreground: 210 40% 85%;
+    --sidebar-primary: 217 91% 60%;
+    --sidebar-primary-foreground: 222 47% 6%;
+    --sidebar-accent: 222 30% 12%;
+    --sidebar-accent-foreground: 210 40% 96%;
+    --sidebar-border: 222 30% 15%;
+    --sidebar-ring: 217 91% 60%;
+
+    /* Status Colors */
+    --status-active: 160 84% 39%;
+    --status-pending: 38 92% 50%;
+    --status-syncing: 217 91% 60%;
+    --status-error: 0 84% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  /* Legal/Code Text */
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer components {
+  /* Glass Card Effect */
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-xl border border-border/50 rounded-xl;
+    box-shadow: 0 4px 24px -4px hsl(var(--background) / 0.5),
+                inset 0 1px 0 0 hsl(var(--foreground) / 0.05);
+  }
+
+  /* Status Indicator Pulse */
+  .status-pulse {
+    @apply relative;
+  }
+  .status-pulse::before {
+    content: '';
+    @apply absolute inset-0 rounded-full animate-ping opacity-75;
+    background: inherit;
+  }
+
+  /* Legal Text Highlight */
+  .legal-highlight {
+    @apply px-1.5 py-0.5 rounded font-medium;
+    background: hsl(var(--highlight-legal-bg));
+    color: hsl(var(--highlight-legal));
+    border-bottom: 2px solid hsl(var(--highlight-legal));
+  }
+
+  .gap-highlight {
+    @apply px-1.5 py-0.5 rounded font-medium;
+    background: hsl(var(--highlight-gap-bg));
+    color: hsl(var(--highlight-gap));
+    border-bottom: 2px solid hsl(var(--highlight-gap));
+  }
+
+  .match-highlight {
+    @apply px-1.5 py-0.5 rounded font-medium;
+    background: hsl(var(--highlight-match-bg));
+    color: hsl(var(--highlight-match));
+    border-bottom: 2px solid hsl(var(--highlight-match));
+  }
+
+  /* Progress Bar */
+  .progress-bar {
+    @apply h-1.5 rounded-full overflow-hidden;
+    background: hsl(var(--muted));
+  }
+  .progress-bar-fill {
+    @apply h-full rounded-full transition-all duration-500;
+    background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--success)));
+  }
+
+  /* Glow Effects */
+  .glow-primary {
+    box-shadow: 0 0 40px -10px hsl(var(--primary) / 0.4);
+  }
+
+  .glow-success {
+    box-shadow: 0 0 30px -8px hsl(var(--success) / 0.4);
+  }
+
+  /* Scrollbar Styling */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+    border-radius: 3px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 3px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground));
+  }
+}
+
+@layer utilities {
+  /* Fade in animation */
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Slide in from left */
+  .animate-slide-in-left {
+    animation: slideInLeft 0.4s ease-out forwards;
+  }
+
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* Slide in from right */
+  .animate-slide-in-right {
+    animation: slideInRight 0.4s ease-out forwards;
+  }
+
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* Subtle float */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+  }
+
+  /* Progress pulse */
+  .animate-progress-pulse {
+    animation: progressPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes progressPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+  }
+}

@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regulatory Sentinel | ApexBank Compliance</title>
+    <meta name="description" content="Enterprise regulatory compliance engine with human-in-the-loop governance">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <div class="logo-icon">⚖️</div>
+                <div class="logo-text">
+                    <span class="logo-title">Regulatory Sentinel</span>
+                    <span class="logo-subtitle">ApexBank Compliance</span>
+                </div>
+            </div>
+            
+            <div class="nav-section">
+                <span class="nav-label">COMPLIANCE MODULES</span>
+                <nav class="nav-menu">
+                    <a href="#" class="nav-item active" data-section="dashboard">
+                        <span class="nav-icon">📊</span>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="#" class="nav-item" data-section="regulation-intake">
+                        <span class="nav-icon">📜</span>
+                        <span>Regulation Intake</span>
+                        <span class="badge">3</span>
+                    </a>
+                    <a href="#" class="nav-item" data-section="policy-comparison">
+                        <span class="nav-icon">🔄</span>
+                        <span>Policy Comparison</span>
+                    </a>
+                    <a href="#" class="nav-item" data-section="gap-detection">
+                        <span class="nav-icon">⚠️</span>
+                        <span>Gap Detection</span>
+                        <span class="badge warning">2</span>
+                    </a>
+                    <a href="#" class="nav-item" data-section="recommendations">
+                        <span class="nav-icon">💡</span>
+                        <span>Recommendations</span>
+                    </a>
+                    <a href="#" class="nav-item" data-section="audit-trail">
+                        <span class="nav-icon">📋</span>
+                        <span>Audit Trail</span>
+                    </a>
+                    <a href="#" class="nav-item" data-section="propagation">
+                        <span class="nav-icon">📡</span>
+                        <span>Propagation Status</span>
+                    </a>
+                </nav>
+            </div>
+            
+            <div class="sidebar-footer">
+                <a href="#" class="nav-item">
+                    <span class="nav-icon">🔔</span>
+                    <span>Notifications</span>
+                    <span class="badge">5</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <span class="nav-icon">⚙️</span>
+                    <span>Settings</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <div class="header-left">
+                    <a href="#" class="back-link">← Back to ApexBank</a>
+                    <div class="search-box">
+                        <span class="search-icon">🔍</span>
+                        <input type="text" placeholder="Search regulations, policies..." class="search-input">
+                    </div>
+                </div>
+                <div class="header-right">
+                    <div class="sync-status">
+                        <span class="sync-dot"></span>
+                        <span>Systems Synced</span>
+                    </div>
+                    <div class="notifications-btn">🔔</div>
+                    <div class="user-profile">
+                        <div class="user-avatar">JJ</div>
+                        <div class="user-info">
+                            <span class="user-name">Jihaan Jain</span>
+                            <span class="user-role">ApexBank Staff</span>
+                        </div>
+                    </div>
+                    <button class="logout-btn">→ Logout</button>
+                </div>
+            </header>
+
+            <!-- Dashboard Section -->
+            <section class="content-section" id="dashboard-section">
+                <div class="section-header">
+                    <h1>Dashboard</h1>
+                    <p class="section-subtitle">Real-time compliance monitoring and regulatory analysis</p>
+                </div>
+
+                <!-- Stats Cards -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon red">⭕</div>
+                        <div class="stat-content">
+                            <span class="stat-value" id="stat-compliance">0%</span>
+                            <span class="stat-label">Compliance Score</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon gray">⏱️</div>
+                        <div class="stat-content">
+                            <span class="stat-value" id="stat-regulations">0</span>
+                            <span class="stat-label">Active Regulations</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon yellow">⚠️</div>
+                        <div class="stat-content">
+                            <span class="stat-value" id="stat-gaps">0</span>
+                            <span class="stat-label">Open Gaps</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon green">✓</div>
+                        <div class="stat-content">
+                            <span class="stat-value" id="stat-updated">0</span>
+                            <span class="stat-label">Policies Updated</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Two Column Layout -->
+                <div class="content-grid">
+                    <!-- Regulation Intake Panel -->
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title-group">
+                                <span class="card-icon">📜</span>
+                                <div>
+                                    <h3>Regulation Intake</h3>
+                                    <p class="card-subtitle">Newly ingested regulatory documents</p>
+                                </div>
+                            </div>
+                            <div class="card-actions">
+                                <button class="btn btn-outline" id="upload-btn">
+                                    <span>↑</span> Upload Regulation
+                                </button>
+                                <button class="btn btn-outline" id="view-all-btn">
+                                    <span>↗</span> View All
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-body" id="regulations-list">
+                            <div class="loading-state">Loading ingested regulations...</div>
+                        </div>
+                        <div class="card-footer">
+                            <p class="helper-text">Select or <a href="#" id="upload-link">upload a regulation</a> to start policy comparison.</p>
+                        </div>
+                    </div>
+
+                    <!-- Compliance Gaps Panel -->
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title-group">
+                                <span class="card-icon">⚠️</span>
+                                <div>
+                                    <h3>Compliance Gaps</h3>
+                                    <p class="card-subtitle">Pending policy updates requiring attention</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body" id="gaps-list">
+                            <div class="empty-state">Select a regulation to view compliance gaps.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Propagation Status -->
+                <div class="card propagation-card">
+                    <div class="card-header">
+                        <div class="card-title-group">
+                            <span class="card-icon">📡</span>
+                            <div>
+                                <h3>Propagation Status</h3>
+                                <p class="card-subtitle">Real-time policy update deployment</p>
+                            </div>
+                        </div>
+                        <div class="propagation-progress">
+                            <span class="progress-text">40%</span>
+                            <span class="progress-systems">2/5 systems</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 40%"></div>
+                        </div>
+                        <div class="systems-grid" id="systems-status">
+                            <div class="system-card completed">
+                                <h4>Policy Document Repository</h4>
+                                <p>Document</p>
+                                <span class="system-status">✓ Completed</span>
+                            </div>
+                            <div class="system-card syncing">
+                                <h4>Authentication Service</h4>
+                                <p>Service</p>
+                                <span class="system-status">⟳ Syncing 67%</span>
+                                <div class="mini-progress"><div class="mini-fill" style="width: 67%"></div></div>
+                            </div>
+                            <div class="system-card pending">
+                                <h4>Mobile Banking App</h4>
+                                <p>Application</p>
+                                <span class="system-status">○ Pending</span>
+                            </div>
+                            <div class="system-card pending">
+                                <h4>Web Banking Portal</h4>
+                                <p>Application</p>
+                                <span class="system-status">○ Pending</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Regulation Intake Section -->
+            <section class="content-section hidden" id="regulation-intake-section">
+                <div class="section-header">
+                    <h1>Regulation Intake</h1>
+                    <p class="section-subtitle">Manage specific compliance module</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title-group">
+                            <span class="card-icon">📜</span>
+                            <div>
+                                <h3>Regulation Intake</h3>
+                                <p class="card-subtitle">Newly ingested regulatory documents</p>
+                            </div>
+                        </div>
+                        <div class="card-actions">
+                            <button class="btn btn-outline" onclick="showUploadModal()">
+                                <span>↑</span> Upload Regulation
+                            </button>
+                            <button class="btn btn-outline">
+                                <span>↗</span> View All
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body" id="intake-regulations-list">
+                        <div class="loading-state">Loading ingested regulations...</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Policy Comparison Section -->
+            <section class="content-section hidden" id="policy-comparison-section">
+                <div class="section-header">
+                    <h1>Policy Comparison</h1>
+                    <p class="section-subtitle">Manage specific compliance module</p>
+                </div>
+                
+                <!-- Stats -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon red">⭕</div>
+                        <div class="stat-content">
+                            <span class="stat-value">0%</span>
+                            <span class="stat-label">Compliance Score</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon gray">⏱️</div>
+                        <div class="stat-content">
+                            <span class="stat-value">0</span>
+                            <span class="stat-label">Active Regulations</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon yellow">⚠️</div>
+                        <div class="stat-content">
+                            <span class="stat-value">0</span>
+                            <span class="stat-label">Open Gaps</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon green">✓</div>
+                        <div class="stat-content">
+                            <span class="stat-value">0</span>
+                            <span class="stat-label">Policies Updated</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-body">
+                        <div class="empty-state">Select or upload a regulation to start policy comparison.</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Gap Detection Section -->
+            <section class="content-section hidden" id="gap-detection-section">
+                <div class="section-header">
+                    <h1>Gap Detection</h1>
+                    <p class="section-subtitle">Manage specific compliance module</p>
+                </div>
+                
+                <!-- Stats -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon red">⭕</div>
+                        <div class="stat-content">
+                            <span class="stat-value">0%</span>
+                            <span class="stat-label">Compliance Score</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon gray">⏱️</div>
+                        <div class="stat-content">
+                            <span class="stat-value">0</span>
+                            <span class="stat-label">Active Regulations</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon yellow">⚠️</div>
+                        <div class="stat-content">
+                            <span class="stat-value">0</span>
+                            <span class="stat-label">Open Gaps</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon green">✓</div>
+                        <div class="stat-content">
+                            <span class="stat-value">0</span>
+                            <span class="stat-label">Policies Updated</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-body" id="gaps-detection-list">
+                        <div class="empty-state">Select a regulation to view compliance gaps.</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Recommendations Section -->
+            <section class="content-section hidden" id="recommendations-section">
+                <div class="section-header">
+                    <h1>Recommendations</h1>
+                    <p class="section-subtitle">AI-generated policy update recommendations</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-body" id="recommendations-list">
+                        <div class="empty-state">No recommendations pending. Run a compliance analysis first.</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Audit Trail Section -->
+            <section class="content-section hidden" id="audit-trail-section">
+                <div class="section-header">
+                    <h1>Audit Trail</h1>
+                    <p class="section-subtitle">Complete history of compliance actions</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-body" id="audit-list">
+                        <div class="loading-state">Loading audit trail...</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Propagation Section -->
+            <section class="content-section hidden" id="propagation-section">
+                <div class="section-header">
+                    <h1>Propagation Status</h1>
+                    <p class="section-subtitle">Track policy deployment across systems</p>
+                </div>
+                
+                <div class="card propagation-card">
+                    <div class="card-body">
+                        <div class="systems-grid large" id="propagation-systems">
+                            <!-- Systems will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Upload Modal -->
+    <div class="modal-overlay" id="upload-modal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Upload Regulation</h3>
+                <button class="modal-close" onclick="closeUploadModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="upload-form">
+                    <div class="form-group">
+                        <label>Regulation Name *</label>
+                        <input type="text" id="reg-name" placeholder="e.g., EU AI Act - Article 10" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Regulation Text *</label>
+                        <textarea id="reg-text" rows="10" placeholder="Paste the regulatory text here..." required></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" onclick="closeUploadModal()">Cancel</button>
+                <button class="btn btn-primary" onclick="submitRegulation()">
+                    🚀 Analyze Regulation
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gap Detail Modal -->
+    <div class="modal-overlay" id="gap-modal">
+        <div class="modal modal-large">
+            <div class="modal-header">
+                <h3>Compliance Gap Details</h3>
+                <button class="modal-close" onclick="closeGapModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="gap-modal-body">
+            </div>
+            <div class="modal-footer" id="gap-modal-footer">
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>

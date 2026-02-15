@@ -1,0 +1,46 @@
+# Python
+venv/
+.venv/
+env/
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+*.whl
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-error.log*
+
+# Database files (MongoDB, SQLite journals, etc.)
+*.db-journal
+database_data/
+**/journal/
+
+# Large binaries / DLLs in venv (GitHub 100MB limit)
+**/venv/Lib/site-packages/**/*.dll
+**/venv/Lib/site-packages/**/*.pyd
+**/.venv/Lib/site-packages/**/*.dll
+**/.venv/Lib/site-packages/**/*.pyd
+
+# Environment
+.env
+.env.local
+*.env
+
+# IDE / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/

@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RSoft Agentic Bank | AI Agent Banking</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="#" id="sign-in-link" class="back-link">Sign In (Employee / Customer)</a>
+            </div>
+            
+            <div class="sidebar-brand">
+                <div class="brand-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M12 6v6l4 2"/>
+                    </svg>
+                </div>
+                <div class="brand-text">
+                    <h1>RSoft Agentic Bank</h1>
+                    <span>AI Agent Finance</span>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <span class="section-label">AGENT OPERATIONS</span>
+                <nav class="sidebar-nav">
+                    <a href="index.html" class="nav-item active">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="7" height="7"/>
+                            <rect x="14" y="3" width="7" height="7"/>
+                            <rect x="14" y="14" width="7" height="7"/>
+                            <rect x="3" y="14" width="7" height="7"/>
+                        </svg>
+                        Dashboard
+                    </a>
+                    <a href="agents.html" class="nav-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="8" r="5"/>
+                            <path d="M20 21a8 8 0 0 0-16 0"/>
+                        </svg>
+                        Agent Registry
+                        <span class="nav-badge">3</span>
+                    </a>
+                    <a href="lending.html" class="nav-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="4" width="20" height="16" rx="2"/>
+                            <path d="M7 15h0M2 9h20"/>
+                        </svg>
+                        Lending Pool
+                    </a>
+                    <a href="risk-scoring.html" class="nav-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                        </svg>
+                        Risk Scoring
+                    </a>
+                    <a href="kya.html" class="nav-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                        KYA Protocol
+                    </a>
+                    <a href="transactions.html" class="nav-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="22,12 18,12 15,21 9,3 6,12 2,12"/>
+                        </svg>
+                        Transactions
+                    </a>
+                </nav>
+            </div>
+
+            <div class="sidebar-footer">
+                <a href="#" class="nav-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+                        <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+                    </svg>
+                    Notifications
+                    <span class="nav-badge alert">2</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="3"/>
+                        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                    </svg>
+                    Settings
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Header -->
+            <header class="top-header">
+                <div class="search-box">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"/>
+                        <path d="M21 21l-4.35-4.35"/>
+                    </svg>
+                    <input type="text" placeholder="Search agents, loans, transactions...">
+                </div>
+                <div class="header-actions">
+                    <div class="status-indicator">
+                        <span class="status-dot active"></span>
+                        <span>Systems Synced</span>
+                    </div>
+                    <div class="user-menu">
+                        <div class="user-avatar">AI</div>
+                        <div class="user-info">
+                            <span class="user-name">Agent Admin</span>
+                            <span class="user-role">AgenticBank Staff</span>
+                        </div>
+                        <button class="logout-btn">Logout</button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Page Content -->
+            <div class="page-content">
+                <!-- Info Banner -->
+                <div class="info-banner">
+                    <div class="info-icon">💡</div>
+                    <div class="info-text">
+                        <strong>How the AI Agent Banking flow works:</strong>
+                        <ol>
+                            <li><strong>Register Agent (KYA):</strong> AI agents get code-based identity with wallet address and API key.</li>
+                            <li><strong>Risk Evaluation:</strong> 5 specialized agents (Behavior, Performance, Transaction, Integrity, Market) score the AI agent.</li>
+                            <li><strong>Request Loan:</strong> Based on risk score, agents can request loans with dynamic interest rates.</li>
+                            <li><strong>Autonomous Repayment:</strong> Agents manage repayments; reputation updates automatically.</li>
+                            <li><strong>Track Everything:</strong> All transactions logged with timestamps for full transparency.</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Stats Cards -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon risk">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            </svg>
+                        </div>
+                        <div class="stat-value" id="avg-risk-score">72%</div>
+                        <div class="stat-label">Avg Risk Score</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon agents">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="8" r="5"/>
+                                <path d="M20 21a8 8 0 0 0-16 0"/>
+                            </svg>
+                        </div>
+                        <div class="stat-value" id="active-agents">3</div>
+                        <div class="stat-label">Active Agents</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon warning">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                                <line x1="12" y1="9" x2="12" y2="13"/>
+                                <line x1="12" y1="17" x2="12.01" y2="17"/>
+                            </svg>
+                        </div>
+                        <div class="stat-value" id="pending-loans">0</div>
+                        <div class="stat-label">Pending Loans</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon success">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                                <path d="M7 15h0M2 9h20"/>
+                            </svg>
+                        </div>
+                        <div class="stat-value" id="pool-balance">$1M</div>
+                        <div class="stat-label">Pool Balance</div>
+                    </div>
+                </div>
+
+                <!-- Main Grid -->
+                <div class="content-grid">
+                    <!-- Agent Registry Panel -->
+                    <div class="panel">
+                        <div class="panel-header">
+                            <div class="panel-title">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="8" r="5"/>
+                                    <path d="M20 21a8 8 0 0 0-16 0"/>
+                                </svg>
+                                <span>Agent Registry</span>
+                                <small>KYA verified AI agents</small>
+                            </div>
+                            <div class="panel-actions">
+                                <button class="btn-secondary" onclick="openRegisterModal()">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M12 5v14M5 12h14"/>
+                                    </svg>
+                                    Register Agent
+                                </button>
+                                <button class="btn-text">View All</button>
+                            </div>
+                        </div>
+                        <div class="panel-content">
+                            <div class="agent-list" id="agent-list">
+                                <!-- Agents will be loaded here -->
+                            </div>
+                            <div class="empty-state" id="empty-agents" style="display: none;">
+                                <p>No agents registered yet. Register an AI agent to get started.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Risk Evaluation Panel -->
+                    <div class="panel">
+                        <div class="panel-header">
+                            <div class="panel-title">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83"/>
+                                </svg>
+                                <span>Risk Evaluation</span>
+                            </div>
+                        </div>
+                        <div class="panel-content">
+                            <p class="hint-text">Select an agent to view compliance gaps.</p>
+                            <div id="risk-evaluation-result" style="display: none;">
+                                <!-- Risk results will be shown here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bottom Section -->
+                <div class="content-grid">
+                    <!-- Lending Pool Status -->
+                    <div class="panel compact">
+                        <div class="panel-header">
+                            <div class="panel-title">
+                                <span>Lending Pool Status</span>
+                                <small>Real-time pool metrics</small>
+                            </div>
+                        </div>
+                        <div class="panel-content">
+                            <div class="pool-stats">
+                                <div class="pool-stat">
+                                    <span class="pool-label">Pool Balance</span>
+                                    <span class="pool-value" id="pool-balance-detail">$1,000,000</span>
+                                </div>
+                                <div class="pool-stat">
+                                    <span class="pool-label">Total Borrowed</span>
+                                    <span class="pool-value" id="total-borrowed">$0</span>
+                                </div>
+                                <div class="pool-stat">
+                                    <span class="pool-label">Utilization</span>
+                                    <span class="pool-value" id="utilization-rate">0%</span>
+                                </div>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="utilization-bar" style="width: 0%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Multi-Agent Scoring -->
+                    <div class="panel compact">
+                        <div class="panel-header">
+                            <div class="panel-title">
+                                <span>Multi-Agent Risk Scoring</span>
+                                <small>5 specialized agents</small>
+                            </div>
+                            <div class="sync-status">
+                                <span class="sync-progress">40%</span>
+                                <small>2/5 agents</small>
+                            </div>
+                        </div>
+                        <div class="panel-content">
+                            <div class="agent-scores">
+                                <div class="score-item">
+                                    <span class="score-label">BehaviorAgent</span>
+                                    <div class="score-bar"><div class="score-fill" style="width: 85%"></div></div>
+                                    <span class="score-value">85</span>
+                                </div>
+                                <div class="score-item">
+                                    <span class="score-label">PerformanceAgent</span>
+                                    <div class="score-bar"><div class="score-fill" style="width: 72%"></div></div>
+                                    <span class="score-value">72</span>
+                                </div>
+                                <div class="score-item">
+                                    <span class="score-label">TransactionAgent</span>
+                                    <div class="score-bar"><div class="score-fill pending" style="width: 0%"></div></div>
+                                    <span class="score-value pending">--</span>
+                                </div>
+                                <div class="score-item">
+                                    <span class="score-label">IntegrityAgent</span>
+                                    <div class="score-bar"><div class="score-fill pending" style="width: 0%"></div></div>
+                                    <span class="score-value pending">--</span>
+                                </div>
+                                <div class="score-item">
+                                    <span class="score-label">MarketRiskAgent</span>
+                                    <div class="score-bar"><div class="score-fill pending" style="width: 0%"></div></div>
+                                    <span class="score-value pending">--</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Register Agent Modal -->
+    <div class="modal-overlay" id="register-modal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2>Register New AI Agent</h2>
+                <button class="close-btn" onclick="closeRegisterModal()">×</button>
+            </div>
+            <div class="modal-body">
+                <form id="register-form">
+                    <div class="form-group">
+                        <label>Agent Name</label>
+                        <input type="text" id="agent-name" placeholder="e.g., AlphaTrader-001" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Agent Type</label>
+                        <select id="agent-type">
+                            <option value="customer">Customer</option>
+                            <option value="trader">Trader</option>
+                            <option value="lender">Lender</option>
+                            <option value="manager">Manager</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Code Hash</label>
+                        <div class="input-group">
+                            <input type="text" id="code-hash" placeholder="SHA-256 hash of agent code" required>
+                            <button type="button" class="btn-secondary" onclick="generateHash()">Generate</button>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-primary full-width">Register Agent with KYA</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        (function() {
+            var signInLink = document.getElementById('sign-in-link');
+            if (signInLink) {
+                signInLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    if (window.parent !== window) {
+                        window.parent.postMessage({ type: 'SHOW_LOGIN' }, '*');
+                    } else {
+                        window.location.href = '/app';
+                    }
+                });
+            }
+        })();
+    </script>
+</body>
+</html>
